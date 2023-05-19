@@ -1,0 +1,58 @@
+Para crear un archivo nuevo desde codigo java es simple
+creamos la ruta y el nombre del archivo
+
+String nombre = "c:/esta/es/laruta/nombreArchivo.txt"
+
+Luego tenemos que crear una instancia de la clase File la cual tiene como parametro en el constructor
+un string que va ha ser tomado como la ruta y el nombre del archivo
+
+File file = new File(ruta);
+
+
+Y eso es todo lo que necesitamos para crear un archivo desde java con extension txt
+
+
+Luego si queremos escribir un texto dentro de el archivo necesitamos dos clases
+
+FileWriter fileWriter = new FileWriter(file);
+BufferedWriter bufferedWriter = new BufferedWriter();
+
+bufferedWriter.Writer(fileWriter);
+
+
+Ejemplo:  public void Archivo() {
+		
+		
+		
+		String Linea1 = "*****************************************************************************************";
+		String Linea2 =   "*****************************************************************************************";
+	    String camponombre = campoNombre.getText();
+	    String campoedad = campoEdad.getText();
+	    String campofecha = campoFecha.getText();
+		    Toolkit.getDefaultToolkit().beep();
+			JOptionPane.showMessageDialog(null,"INFORMACION CORRECTA");
+			String ruta = "C:/Users/lisandro/Desktop/Nueva carpeta/Nuevo archivo.txt";
+			File file = new File(ruta);
+			try {
+				file.createNewFile();
+			
+				FileWriter fileWriter = new FileWriter(file,true);
+				BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+				bufferedWriter.write(Linea1+"\n"+"Datos" +"\n"+"NOMBRE:"+camponombre+"\n"+"EDAD:"+campoedad+"\n"
+				+"FECHA:"+campofecha+"\n"+Linea2);
+				bufferedWriter.newLine();
+				
+				bufferedWriter.close();
+		        fileWriter.close();
+			
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		
+		
+		
+		
+		
+	}
